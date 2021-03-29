@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>LibraryManagerWeb</display-name>
+  <!-- 项目启动后的主页 -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 错误页面定义 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/500.jsp</location>
+  </error-page>
+  
+  <!-- 过滤器配置 -->
+  <filter>
+  	<description>登录状态检测过滤器</description>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.ischoolbar.programmer.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/SystemServlet</url-pattern>
+  	<url-pattern>/UserServlet</url-pattern>
+  	<url-pattern>/BookCategoryServlet</url-pattern>
+  	<url-pattern>/BookServlet</url-pattern>
+  	<url-pattern>/BorrowServlet</url-pattern>
+  	<url-pattern>/BorrowStatsServlet</url-pattern>
+  </filter-mapping>
+  
+  <!-- servlet定义，对应于servlet类 -->
+  <servlet>
+  	<description>验证码控制类</description>
+  	<servlet-name>CpachaServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.CpachaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CpachaServlet</servlet-name>
+  	<url-pattern>/CpachaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>登录注册控制类</description>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>登录后主页控制类</description>
+  	<servlet-name>SystemServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.SystemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SystemServlet</servlet-name>
+  	<url-pattern>/SystemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>用户管理控制类</description>
+  	<servlet-name>UserServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserServlet</servlet-name>
+  	<url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>图书分类管理控制类</description>
+  	<servlet-name>BookCategoryServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.BookCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookCategoryServlet</servlet-name>
+  	<url-pattern>/BookCategoryServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<description>图书管理控制类</description>
+  	<servlet-name>BookServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.BookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookServlet</servlet-name>
+  	<url-pattern>/BookServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>借阅图书管理控制类</description>
+  	<servlet-name>BorrowServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.BorrowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BorrowServlet</servlet-name>
+  	<url-pattern>/BorrowServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>借阅图书统计管理控制类</description>
+  	<servlet-name>BorrowStatsServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.BorrowStatsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BorrowStatsServlet</servlet-name>
+  	<url-pattern>/BorrowStatsServlet</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
